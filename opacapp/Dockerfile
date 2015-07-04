@@ -2,7 +2,7 @@ FROM debian:jessie
 
 MAINTAINER Raphael Michel
 
-RUN apt-get update && apt-get install -y  wget openjdk-7-jdk git lib32stdc++6 lib32z1 expect
+RUN apt-get update && apt-get install -y  wget openjdk-7-jdk git lib32stdc++6 lib32z1 expect curl
 
 # Android dependencies
 RUN wget http://dl.google.com/android/android-sdk_r24.3.3-linux.tgz && \
