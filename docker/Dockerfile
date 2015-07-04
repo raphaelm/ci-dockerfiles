@@ -22,7 +22,7 @@ ADD supervisord.conf /etc/supervisor/conf.d/wrapdocker.conf
 RUN adduser --disabled-password --gecos '' ciuser
 RUN adduser ciuser docker
 RUN echo '\nciuser ALL = (ALL) NOPASSWD:/usr/bin/supervisord' >> /etc/sudoers
-RUN mkdir /build && chown ciuser /build
+RUN mkdir /builds && chown ciuser /builds
 
 USER ciuser
 
