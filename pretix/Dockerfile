@@ -14,8 +14,8 @@ RUN npm install -g less@2.5.0
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN ln -s /node_modules/.bin/lessc /usr/bin/lessc
 
-RUN locale-gen C.UTF-8 && \
-	/usr/sbin/update-locale LANG=C.UTF-8
+RUN locale-gen
+RUN update-locale LANG=C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
