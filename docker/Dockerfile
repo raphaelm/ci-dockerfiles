@@ -15,6 +15,9 @@ RUN apt-get update -y && apt-get install -y lxc-docker
 ADD wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
 
+ADD entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 VOLUME /var/lib/docker
 
 ADD supervisord.conf /etc/supervisor/conf.d/wrapdocker.conf
@@ -26,4 +29,4 @@ RUN mkdir /builds && chown ciuser /builds
 
 USER ciuser
 
-CMD sudo /usr/bin/supervisord && /bin/bash
+ENTRYPOINT /usr/local/bin/entrypoint.sh
