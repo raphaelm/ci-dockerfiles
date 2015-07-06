@@ -22,7 +22,7 @@ VOLUME /var/lib/docker
 
 ADD supervisord.conf /etc/supervisor/conf.d/wrapdocker.conf
 
-RUN adduser --disabled-password --gecos '' ciuser
+RUN adduser --disabled-password --gecos '' --uid 1600 ciuser
 RUN adduser ciuser docker
 RUN echo '\nciuser ALL = (ALL) NOPASSWD:/usr/bin/supervisord' >> /etc/sudoers
 RUN mkdir /builds && chown ciuser /builds
