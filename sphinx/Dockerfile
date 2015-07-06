@@ -6,7 +6,7 @@ USER root
 RUN apt-get update && apt-get install -y wget python3 git python3-pip \
 	python3-sphinx python3-pil texlive-latex-extra texlive-fonts-recommended \
 	texlive-latex-recommended texlive-latex-recommended dvipng locales \
-	git curl build-essentials \
+	git curl build-essential \
 	--no-install-recommends
 
 WORKDIR /
