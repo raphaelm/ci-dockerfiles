@@ -13,6 +13,11 @@ RUN echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 RUN apt-get update -y && apt-get install -y lxc-docker
 
+RUN locale-gen
+RUN update-locale LANG=C.UTF-8
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+
 ADD wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
 
