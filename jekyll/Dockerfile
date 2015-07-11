@@ -3,7 +3,7 @@ FROM ruby:2-wheezy
 MAINTAINER Raphael Michel
 USER root
 
-RUN apt-get update && apt-get install -y build-essential \
+RUN apt-get update && apt-get install -y build-essential locales \
 	--no-install-recommends
 
 WORKDIR /
