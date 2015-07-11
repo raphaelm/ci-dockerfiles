@@ -3,7 +3,7 @@ FROM ruby:2-wheezy
 MAINTAINER Raphael Michel
 USER root
 
-RUN apt-get update && apt-get install -y build-essential locales nodejcurl \
+RUN apt-get update && apt-get install -y build-essential locales curl \
 	--no-install-recommends
 RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
 RUN apt-get install --yes nodejs
