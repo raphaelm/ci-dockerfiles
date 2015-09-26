@@ -19,4 +19,6 @@ ENV LANG C.UTF-8
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN pip install pip-accell
+
 CMD ["/bin/bash"]
