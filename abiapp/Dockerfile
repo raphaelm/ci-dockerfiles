@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER raphael@abiapp.net
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y python python-pip python-dev \
+RUN apt-get update && apt-get install -y python python-dev \
 	libmysqlclient-dev python-virtualenv npm build-essential git rrdtool locales \
 	libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev libxslt1-dev librrd-dev \
 	texlive-latex-recommended texlive-latex-extra texlive-xetex texlive-lang-german \
@@ -19,6 +19,8 @@ ENV LANG C.UTF-8
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+ADD get-pip.py /tmp/get-pip.py
+RUN python /tmp/get-pip.py
 RUN pip install wheel
 
 CMD ["/bin/bash"]
