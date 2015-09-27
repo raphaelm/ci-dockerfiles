@@ -6,7 +6,8 @@ USER root
 RUN apt-get update && apt-get install -y wget python3 git python3-pip \
 	libxml2-dev libxslt1-dev python-dev python-virtualenv locales libffi-dev \
 	build-essential python3-dev zlib1g-dev libssl-dev npm gettext git \
-	libpq-dev libmysqlclient-dev libmemcached-dev curl \
+	libpq-dev libmysqlclient-dev libmemcached-dev curl libfreetype6 \
+	libfontconfig bzip2 \
 	--no-install-recommends
 
 WORKDIR /
@@ -19,13 +20,14 @@ RUN update-locale LANG=C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
-
+# We want a current pip
+ADD get-pip.py /tmp/get-pip.py
+RUN python /tmp/get-pip.py
 
 ENV PHANTOMJS_VERSION 1.9.7
 
 # Commands
 RUN \
-	apt-get install -y wget libfreetype6 libfontconfig bzip2 && \
 	mkdir -p /srv/var && \
 	wget -q -O /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 && \
 	tar -xjf /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -C /tmp && \
