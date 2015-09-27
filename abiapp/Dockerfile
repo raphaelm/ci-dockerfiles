@@ -21,6 +21,5 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD get-pip.py /tmp/get-pip.py
 RUN python /tmp/get-pip.py
-RUN pip install wheel
 
 CMD ["/bin/bash"]
