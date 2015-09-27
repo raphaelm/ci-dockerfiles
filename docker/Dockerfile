@@ -24,8 +24,6 @@ RUN chmod +x /usr/local/bin/wrapdocker
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-VOLUME /var/lib/docker
-
 ADD supervisord.conf /etc/supervisor/conf.d/wrapdocker.conf
 
 RUN adduser --disabled-password --gecos '' --uid 1600 ciuser
