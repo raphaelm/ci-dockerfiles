@@ -21,7 +21,6 @@ ENV LANG C.UTF-8
 # We want a current pip
 ADD get-pip.py /tmp/get-pip.py
 RUN python3 /tmp/get-pip.py
-RUN pip install virtualenv wheel
 
 ADD wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
