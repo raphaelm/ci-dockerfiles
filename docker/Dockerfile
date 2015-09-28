@@ -7,7 +7,7 @@ MAINTAINER Raphael Michel <mail@raphaelmichel.de>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y && apt-get install -y locales iptables ca-certificates lxc \
-	apt-transport-https supervisor sudo python3 python3-virtualenv curl \
+	apt-transport-https supervisor sudo python3 curl \
 	--no-install-recommends
 RUN echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
@@ -21,7 +21,7 @@ ENV LANG C.UTF-8
 # We want a current pip
 ADD get-pip.py /tmp/get-pip.py
 RUN python3 /tmp/get-pip.py
-RUN pip install virtualenv
+RUN pip install -U virtualenv
 
 ADD wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
