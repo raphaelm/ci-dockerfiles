@@ -4,6 +4,11 @@ MAINTAINER Raphael Michel
 
 RUN apt-get update && apt-get install -y  wget openjdk-7-jdk git lib32stdc++6 lib32z1 expect curl
 
+RUN locale-gen
+RUN update-locale LANG=C.UTF-8
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+
 # Android dependencies
 RUN wget http://dl.google.com/android/android-sdk_r24.3.3-linux.tgz && \
 	tar xfz android-sdk_r24.3.3-linux.tgz && rm ../../android-sdk_r24.3.3-linux.tgz
