@@ -11,9 +11,10 @@ RUN apt-get update && apt-get install -y wget python3 git python3-pip \
 	--no-install-recommends
 
 WORKDIR /
-RUN npm install -g less@2.5.0
+RUN npm install -g less@2.5.0 cssmin
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN ln -s /node_modules/.bin/lessc /usr/bin/lessc
+RUN ln -s /node_modules/.bin/cssmin /usr/bin/cssmin
 
 RUN locale-gen
 RUN update-locale LANG=C.UTF-8
