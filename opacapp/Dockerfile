@@ -17,7 +17,7 @@ RUN wget http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz && \
 ENV ANDROID_HOME /android-sdk-linux
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
 	/android-sdk-linux/tools/android update sdk --no-ui --all \
-	--filter "build-tools-22.0.1,build-tools-23.0.1,build-tools-23.0.2,android-22,android-23,extra-android-m2repository,extra-android-support,platform-tools"; 
+	--filter "build-tools-22.0.1,build-tools-23.0.1,build-tools-23.0.2,build-tools-23.0.3,android-22,android-23,extra-android-m2repository,extra-android-support,platform-tools"; 
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
