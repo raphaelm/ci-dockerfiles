@@ -2,7 +2,7 @@ FROM debian:jessie
 
 MAINTAINER Raphael Michel
 
-RUN apt-get update && apt-get install -y  wget openjdk-7-jdk git lib32stdc++6 lib32z1 \
+RUN apt-get update && apt-get install -y  wget openjdk-8-jdk git lib32stdc++6 lib32z1 \
 	expect curl locales
 
 RUN locale-gen
