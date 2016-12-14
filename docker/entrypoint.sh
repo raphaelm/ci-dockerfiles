@@ -1,4 +1,8 @@
 #!/bin/bash
 sudo /usr/bin/supervisord
-sleep 2
+for i in {0..10};
+do
+	sleep 2;
+	docker version && break;
+done
 exec bash $*
