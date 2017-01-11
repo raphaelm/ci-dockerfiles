@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y python python-dev wget \
 	libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev libxslt1-dev librrd-dev \
 	texlive-latex-recommended texlive-latex-extra texlive-xetex texlive-lang-german \
 	libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev libssl-dev \
+	libsqlite3 libsqlite3-dev libreadline-dev libncurses5-dev libgdbm-dev \
 	memcached nginx graphicsmagick libmemcached-dev libfontconfig bzip2
 
 RUN npm install -g less@2.5.0
