@@ -20,6 +20,14 @@ ENV LANG C.UTF-8
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Get Python 3
+RUN wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz && \
+	tar xvf Python-3.6.0.tgz && \
+	cd Python-3.6.0 && \
+	./configure --enable-optimizations && \
+	make -j4 && \
+	make altinstall
+
 # We want a current pip
 ADD get-pip.py /tmp/get-pip.py
 RUN python /tmp/get-pip.py
