@@ -13,6 +13,10 @@ ENV LANG C.UTF-8
 # Android dependencies
 RUN wget http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz && \
 	tar xfz android-sdk_r24.3.4-linux.tgz && rm ../../android-sdk_r24.3.4-linux.tgz
+    
+# Android SDK licenses
+RUN mkdir /android-sdk-linux/licenses && \
+    echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> /android-sdk-linux/licenses/android-sdk-license
 
 ENV ANDROID_HOME /android-sdk-linux
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
