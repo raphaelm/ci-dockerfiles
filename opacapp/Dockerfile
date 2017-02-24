@@ -23,6 +23,12 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
 	/android-sdk-linux/tools/android update sdk --no-ui --all \
 	--filter "build-tools-22.0.1,build-tools-23.0.1,build-tools-23.0.2,build-tools-23.0.3,build-tools-24.0.0,build-tools-24.0.1,build-tools-25.0.0,build-tools-25.0.2,android-22,android-23,android-24,android-25,extra-android-m2repository,extra-android-support,platform-tools,addon-google_apis-google-23,extra-google-m2repository"; 
 
+# fdroidserver tools
+
+RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get -t jessie-backports install -y fdroidserver
+    
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
