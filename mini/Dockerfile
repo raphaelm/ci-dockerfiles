@@ -5,7 +5,7 @@ USER root
 
 RUN apt-get update && \
 	apt-get install -y wget python3 git python3-pip \
-	git curl build-essential --no-install-recommends && \
+	git curl openssh-client --no-install-recommends && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
