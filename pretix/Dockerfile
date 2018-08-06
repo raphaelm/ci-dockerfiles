@@ -6,7 +6,7 @@ USER root
 RUN apt-get update && apt-get install -y wget git \
 	libxml2-dev libxslt1-dev python-dev locales libffi-dev \
 	build-essential python3-dev zlib1g-dev libssl-dev npm gettext git \
-	libpq-dev libmysqlclient-dev libmemcached-dev curl libfreetype6 \
+	libpq-dev default-libmysqlclient-dev libmemcached-dev curl libfreetype6 \
 	libfontconfig libfreetype6-dev libjpeg-dev bzip2 libcups2-dev \
 	enchant myspell-de-de aspell-en \
 	--no-install-recommends
