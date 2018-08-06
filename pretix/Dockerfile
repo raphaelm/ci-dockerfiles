@@ -1,9 +1,9 @@
-FROM selenium/standalone-chrome:2.45.0
+FROM python:3.6
 
 MAINTAINER Raphael Michel
 USER root
 
-RUN apt-get update && apt-get install -y wget python3 git python3-pip \
+RUN apt-get update && apt-get install -y wget git \
 	libxml2-dev libxslt1-dev python-dev locales libffi-dev \
 	build-essential python3-dev zlib1g-dev libssl-dev npm gettext git \
 	libpq-dev libmysqlclient-dev libmemcached-dev curl libfreetype6 \
@@ -26,17 +26,6 @@ ENV LANG C.UTF-8
 ADD get-pip.py /tmp/get-pip.py
 RUN python3 /tmp/get-pip.py
 RUN pip install virtualenv 
-
-ENV PHANTOMJS_VERSION 1.9.7
-
-# Commands
-RUN \
-	mkdir -p /srv/var && \
-	wget -q -O /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 && \
-	tar -xjf /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -C /tmp && \
-	rm -f /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 && \
-	mv /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/ /srv/var/phantomjs && \
-	ln -s /srv/var/phantomjs/bin/phantomjs /usr/bin/phantomjs
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
