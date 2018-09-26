@@ -22,7 +22,7 @@ RUN mkdir /android-sdk-linux/licenses && \
 ENV ANDROID_HOME /android-sdk-linux
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
 	/android-sdk-linux/tools/android update sdk --no-ui --all \
-	--filter "build-tools-22.0.1,build-tools-23.0.1,build-tools-23.0.2,build-tools-23.0.3,build-tools-24.0.0,build-tools-24.0.1,build-tools-25.0.0,build-tools-25.0.2,build-tools-25.0.3,build-tools-26.0.2,android-27,android-23,android-24,android-25,extra-android-m2repository,extra-android-support,platform-tools,addon-google_apis-google-23,extra-google-m2repository"; 
+	--filter "build-tools-22.0.1,build-tools-23.0.1,build-tools-23.0.2,build-tools-23.0.3,build-tools-24.0.0,build-tools-24.0.1,build-tools-25.0.0,build-tools-25.0.2,build-tools-25.0.3,build-tools-26.0.2,build-tools-28.0.3,android-27,android-23,android-24,android-25,android-28,extra-android-m2repository,extra-android-support,platform-tools,addon-google_apis-google-23,extra-google-m2repository"; 
 
 # fdroidserver tools
 
