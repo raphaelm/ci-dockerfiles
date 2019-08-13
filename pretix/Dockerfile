@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y wget git \
 	build-essential python3-dev zlib1g-dev libssl-dev gettext git \
 	libpq-dev default-libmysqlclient-dev libmemcached-dev curl libfreetype6 \
 	libfontconfig libfreetype6-dev libjpeg-dev bzip2 libcups2-dev \
-	enchant myspell-de-de aspell-en \
+	enchant myspell-de-de aspell-en rsync \
 	--no-install-recommends
 
 WORKDIR /
