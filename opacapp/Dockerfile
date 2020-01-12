@@ -17,7 +17,8 @@ RUN wget http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz && \
 # Android SDK licenses
 RUN mkdir /android-sdk-linux/licenses && \
     echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> /android-sdk-linux/licenses/android-sdk-license &&\
-    echo d56f5187479451eabf01fb78af6dfcb131a6481e >> /android-sdk-linux/licenses/android-sdk-license
+    echo d56f5187479451eabf01fb78af6dfcb131a6481e >> /android-sdk-linux/licenses/android-sdk-license &&\
+    echo 24333f8a63b6825ea9c5514f83c2829b004d1fee >> /android-sdk-linux/licenses/android-sdk-license
 
 ENV ANDROID_HOME /android-sdk-linux
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
