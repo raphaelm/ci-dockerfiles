@@ -27,7 +27,7 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
 
 # fdroidserver tools
 
-RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get -t jessie-backports install -y fdroidserver
     
