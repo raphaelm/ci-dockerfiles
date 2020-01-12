@@ -28,8 +28,8 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
 # fdroidserver tools
 
 RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get -t jessie-backports install -y fdroidserver
+    apt-get -o Acquire::Check-Valid-Until=false update && \
+    apt-get -o Acquire::Check-Valid-Until=false -t jessie-backports install -y fdroidserver
     
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
