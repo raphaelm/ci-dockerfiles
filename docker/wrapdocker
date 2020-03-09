@@ -89,13 +89,13 @@ rm -rf /var/run/docker.pid
 # otherwise, spawn a shell as well
 if [ "$PORT" ]
 then
-	exec docker daemon -H 0.0.0.0:$PORT
+	exec dockerd -H 0.0.0.0:$PORT
 else
 	if [ "$LOG" == "file" ]
 	then
-		docker daemon &>/var/log/docker.log &
+		dockerd &>/var/log/docker.log &
 	else
-		docker daemon &
+		dockerd &
 	fi
 	exec bash
 fi
