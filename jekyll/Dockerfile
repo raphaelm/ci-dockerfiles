@@ -1,4 +1,4 @@
-FROM ruby:2-wheezy
+FROM ruby:2-buster
 
 MAINTAINER Raphael Michel
 USER root
