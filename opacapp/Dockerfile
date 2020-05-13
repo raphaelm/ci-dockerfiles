@@ -28,4 +28,6 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+ENV JAVA_HOME=/usr/local/openjdk-8
+
 CMD ["/bin/bash"]
