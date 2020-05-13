@@ -1,4 +1,4 @@
-FROM williamyeh/java8:latest
+FROM openjdk:8-buster
 
 MAINTAINER Raphael Michel
 
