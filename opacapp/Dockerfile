@@ -29,5 +29,28 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) |\
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME=/usr/local/openjdk-8
+RUN update-alternatives --install /usr/bin/jar jar /usr/local/openjdk-8/bin/jar 2222 && \
+    update-alternatives --install /usr/bin/jarsigner jarsigner /usr/local/openjdk-8/bin/jarsigner 2222 && \
+    update-alternatives --install /usr/bin/javac javac /usr/local/openjdk-8/bin/javac 2222 && \
+    update-alternatives --install /usr/bin/java java /usr/local/openjdk-8/bin/java 2222 && \
+    update-alternatives --install /usr/bin/javadoc javadoc /usr/local/openjdk-8/bin/javadoc 2222 && \
+    update-alternatives --install /usr/bin/javap javap /usr/local/openjdk-8/bin/javap 2222 && \
+    update-alternatives --install /usr/bin/jcmd jcmd /usr/local/openjdk-8/bin/jcmd 2222 && \
+    update-alternatives --install /usr/bin/jdb jdb /usr/local/openjdk-8/bin/jdb 2222 && \
+    update-alternatives --install /usr/bin/jinfo jinfo /usr/local/openjdk-8/bin/jinfo 2222 && \
+    update-alternatives --install /usr/bin/jjs jjs /usr/local/openjdk-8/bin/jjs 2222 && \
+    update-alternatives --install /usr/bin/jmap jmap /usr/local/openjdk-8/bin/jmap 2222 && \
+    update-alternatives --install /usr/bin/jps jps /usr/local/openjdk-8/bin/jps 2222 && \
+    update-alternatives --install /usr/bin/jrunscript jrunscript /usr/local/openjdk-8/bin/jrunscript 2222 && \
+    update-alternatives --install /usr/bin/jstack jstack /usr/local/openjdk-8/bin/jstack 2222 && \
+    update-alternatives --install /usr/bin/jstat jstat /usr/local/openjdk-8/bin/jstat 2222 && \
+    update-alternatives --install /usr/bin/jstatd jstatd /usr/local/openjdk-8/bin/jstatd 2222 && \
+    update-alternatives --install /usr/bin/keytool keytool /usr/local/openjdk-8/bin/keytool 2222 && \
+    update-alternatives --install /usr/bin/rmic rmic /usr/local/openjdk-8/bin/rmic 2222 && \
+    update-alternatives --install /usr/bin/rmid rmid /usr/local/openjdk-8/bin/rmid 2222 && \
+    update-alternatives --install /usr/bin/rmiregistry rmiregistry /usr/local/openjdk-8/bin/rmiregistry 2222 && \
+    update-alternatives --install /usr/bin/serialver serialver /usr/local/openjdk-8/bin/serialver 2222 && \
+    update-alternatives --install /usr/bin/unpack200 unpack200 /usr/local/openjdk-8/bin/unpack200 2222
+
 
 CMD ["/bin/bash"]
