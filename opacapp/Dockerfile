@@ -3,7 +3,7 @@ FROM openjdk:8-buster
 MAINTAINER Raphael Michel
 
 RUN apt-get update && apt-get install -y  wget git lib32stdc++6 lib32z1 \
-	expect curl locales fdroidserver
+	expect curl locales fdroidserver binfmt-support
 
 RUN locale-gen
 RUN update-locale LANG=C.UTF-8
