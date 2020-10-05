@@ -3,6 +3,11 @@ FROM ubuntu:20.04
 MAINTAINER Raphael Michel
 
 ENV DEBIAN_FRONTEND="noninteractive" TZ="Europe/Berlin"
+
+# fdroidserver package needs its docs to work.
+RUN echo "path-include=/usr/share/doc/fdroidserver/*" > /etc/dpkg/dpkg.cfg.d/excludes
+
+# install packages
 RUN apt-get update && apt-get install -y  wget git lib32stdc++6 lib32z1 \
 	expect curl locales openjdk-8-jdk-headless unzip && apt-get install -y fdroidserver
 
