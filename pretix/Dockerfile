@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y wget git \
 	build-essential python3-dev zlib1g-dev libssl-dev gettext git \
 	libpq-dev default-libmysqlclient-dev libmemcached-dev curl libfreetype6 \
 	libfontconfig libfreetype6-dev libjpeg-dev bzip2 libcups2-dev \
-	enchant myspell-de-de aspell-en rsync \
+	enchant myspell-de-de aspell-en rsync sudo \
 	--no-install-recommends
 
 WORKDIR /
@@ -24,9 +24,6 @@ RUN update-locale LANG=C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
-# We want a current pip
-ADD get-pip.py /tmp/get-pip.py
-RUN python3 /tmp/get-pip.py
 RUN pip install virtualenv 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
