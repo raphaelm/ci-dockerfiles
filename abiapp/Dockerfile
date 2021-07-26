@@ -3,12 +3,7 @@ MAINTAINER raphael@abiapp.net
 
 ENV DEBIAN_FRONTEND noninteractive
 
-COPY requirements.txt /tmp/requirements.txt
-
-RUN echo "deb http://code.rami.io:9999/debian buster main" > /etc/apt/sources.list \
- && echo "deb http://code.rami.io:9999/debian buster-updates main" >> /etc/apt/sources.list \
- && echo "deb http://code.rami.io:9999/security buster/updates main" >> /etc/apt/sources.list \
- && apt-get update \
+RUN apt-get update \
  && apt-get install --no-install-recommends -y libmariadbclient-dev npm build-essential git \
  	rrdtool locales libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev libxslt1-dev librrd-dev \
 	texlive-latex-recommended texlive-latex-extra texlive-xetex texlive-lang-german \
@@ -21,8 +16,7 @@ RUN echo "deb http://code.rami.io:9999/debian buster main" > /etc/apt/sources.li
  && ln -s /node_modules/.bin/lessc /usr/bin/lessc \
  && dpkg-reconfigure locales \
  && locale-gen C.UTF-8 \
- && /usr/sbin/update-locale LANG=C.UTF-8 \
- && pip install -q -r /tmp/requirements.txt
+ && /usr/sbin/update-locale LANG=C.UTF-8
 
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8
 
