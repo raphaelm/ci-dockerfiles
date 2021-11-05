@@ -1,5 +1,5 @@
 FROM docker:20-dind
-RUN apk add --no-cache git bash supervisor
+RUN apk add --no-cache git bash supervisor ansible
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 ADD clean.sh /usr/local/bin/clean.sh
 ADD supervisord.conf /etc/supervisor.d/docker.ini
